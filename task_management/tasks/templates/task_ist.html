@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+<h1>Task Management</h1>
+
+<a href="{% url 'add_task' %}">Add Task</a>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            {% if task.completed %}
+                <strike>{{ task.title }}</strike>
+            {% else %}
+                {{ task.title }}
+            {% endif %}
+            <a href="{% url 'toggle_task' task.id %}">Toggle</a>
+            <a href="{% url 'delete_task' task.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
