@@ -17,9 +17,9 @@ def main():
     else:
         # Default to what Render expects
         settings_module = 'task_management.settings'
-    
+
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
-    
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
