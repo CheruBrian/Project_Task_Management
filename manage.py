@@ -5,7 +5,21 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_management.settings')  # Changed here
+    # Try to auto-detect the settings module
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Check if task_management/settings.py exists
+    if os.path.exists(os.path.join(current_dir, 'task_management', 'settings.py')):
+        settings_module = 'task_management.settings'
+    # Check if settings.py is in root
+    elif os.path.exists(os.path.join(current_dir, 'settings.py')):
+        settings_module = 'settings'
+    else:
+        # Default to what Render expects
+        settings_module = 'task_management.settings'
+    
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
+    
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
