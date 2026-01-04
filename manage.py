@@ -16,7 +16,7 @@ def main():
         settings_module = 'settings'
     else:
         # Default to what Render expects
-        settings_module = 'task_management.settings'
+        settings_module = 'settings_module.render'
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
