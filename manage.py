@@ -10,7 +10,7 @@ def main():
     
     # Check if task_management/settings.py exists
     if os.path.exists(os.path.join(current_dir, 'task_management', 'settings.py')):
-        settings_module = 'task_management.settings'
+        settings_module = 'settings_module.dev'
     # Check if settings.py is in root
     elif os.path.exists(os.path.join(current_dir, 'settings.py')):
         settings_module = 'settings'
